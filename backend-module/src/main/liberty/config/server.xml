@@ -1,0 +1,42 @@
+<server description="Sample Servlet server">
+    <featureManager>
+        <feature>servlet-6.0</feature>
+         <feature>jdbc-4.2</feature>
+    </featureManager>
+
+    <dataSource jndiName="jdbc/MySQLDataSource">
+        <jdbcDriver libraryRef="MySQLLib"/>
+        <properties serverName="localhost"
+                    portNumber="3306"
+                    databaseName="test_db"
+                    user="michal"
+                    password="average"/>
+    </dataSource>
+
+    <variable name="http.port" defaultValue="9080"/>
+    <variable name="https.port" defaultValue="9443"/>
+    <variable name="app.context.root" defaultValue="Home"/>
+
+    <!-- tag::httpEndpoint[] -->
+    <httpEndpoint httpPort="${http.port}" httpsPort="${https.port}" id="defaultHttpEndpoint" host="*">
+        <cors allow-origin="*" allow-methods="GET, POST, PUT, DELETE, OPTIONS" allow-headers="Content-Type" />
+    </httpEndpoint>
+    <!-- end::httpEndpoint[] -->
+    <webApplication id="Home" location="Home.war" contextRoot="${app.context.root}" >
+        <defaultServletsOverride value="false"/>
+    </webApplication>
+
+    <applicationLocation id="Login" location="Home.war" contextRoot="${app.context.root}/login" />
+    <applicationLocation id="Customers" location="Home.war" contextRoot="${app.context.root}/Customers" />
+    <applicationLocation id="CustomerDetails" location="Home.war" contextRoot="${app.context.root}/Customers/detail" />
+    <applicationLocation id="RoomsPage" location="Home.war" contextRoot="${app.context.root}/Rooms" />
+    <applicationLocation id="ServicesPage" location="Home.war" contextRoot="${app.context.root}/Services" />
+    <applicationLocation id="ReservationsPage" location="Home.war" contextRoot="${app.context.root}/Reservations" />
+    <applicationLocation id="ReservationForm"  location="Home.war" contextRoot="${app.context.root}/CreateReservation" />
+    <applicationLocation id="Login" location="Home.war" contextRoot="${app.context.root}/login" />
+    <applicationLocation id="LoginSuccess" location="Home.war" contextRoot="${app.context.root}/success" />
+    <applicationLocation id="RoomsPage" location="Home.war" contextRoot="${app.context.root}/Rooms" />
+    <applicationLocation id="ServicesPage" location="Home.war" contextRoot="${app.context.root}/Services" />
+    <applicationLocation id="EmployeesPage" location="Home.war" contextRoot="${app.context.root}/Employees" />
+</server>
+

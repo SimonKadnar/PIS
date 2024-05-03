@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://www.fit.vutbr.cz/~burgetr/pis/projekt/doc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Projekt PIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+<body>
+
+<!-- Nahraďte prosím názvem tématu -->
+<h1>Hotel</h1>
+
+<!-- Editujte jména a maily autorů a jejich činnost -->
+<dl>
+	<dt>Autori</dt>
+	<dd>Simona Češková
+	    <a href="mailto:xcesko00@stud.fit.vutbr.cz">xcesko00@stud.fit.vutbr.cz</a> -
+		Správa zákazníkov (zobrazenie, úprava ,filtrácia, detail), rezervácie - Check-In/-Out, filtrácia.
+	</dd>
+	<dd>Michal Horejš
+	    <a href="mailto:xhorej01@stud.fit.vutbr.cz">xhorej01@stud.fit.vutbr.cz</a> - 
+		Prihlásenie, odhlásenie, JWT, JPA, zobrazenie zákazníkov, správa hesiel.
+	</dd>
+	<dd>Šimon Kadnár
+	    <a href="mailto:xkadna00@stud.fit.vutbr.cz">xkadna00@stud.fit.vutbr.cz</a> - 
+		Správa izieb a služieb (zobrazenie, pridávanie, upravovanie, odstranovanie, filtrovanie), návrh vzhľadu.
+	</dd>
+	<dd>Lukáš Kaprál
+	    <a href="mailto:xkapra00@stud.fit.vutbr.cz">xkapra00@stud.fit.vutbr.cz</a> - 
+		Kontrola vstupov, spravovanie hraničných stavov systému, vylepšení pro uživatelsky přívětivé prostředí, 
+		Rezervácie - Check-In/-Out, tvorba zákazníka.
+	</dd>
+	<dd>Júlia Mazáková
+	    <a href="mailto:xmazak02@stud.fit.vutbr.cz">xmazak02@stud.fit.vutbr.cz</a> - 
+		Správa rezervácií a zamestnancov-Admin (zobrazenie, úprava, vytvaranie, mazanie, filtrácia).
+	</dd>
+</dl>
+
+<!-- uživatelské účty -->
+<h2>Užívatelia systému pre testovanie</h2>
+<p>Existujúci zástupcovia:</p>
+<table>
+<tbody><tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>admin@admin.com</td><td>admin</td><td>Administrátor</td></tr>
+<tr><td>john.smith@example.com</td><td>password1</td><td>Zamestnanec</td></tr>
+</tbody></table>
+<p>Zákazníci sa neprihlasujú (nemajú možnosť nič upravovať/zobrazovať).</p>
+
+<h2>Postup inštalácie</h2>
+<h4>Vytvorenie databáze</h4>
+<br><code>apt-get install mysql-server mysql-client</code>
+<br><code>sudo usermod -d /var/lib/mysql/ mysql</code>
+<br><code>sudo service mysql start</code>
+<br><code>mysql -uroot -ppassword</code>
+<br><code>CREATE DATABASE test_db;</code>
+<br><code>USE test_db;</code>
+<br><code>CREATE USER 'michal'@'localhost' IDENTIFIED BY 'average';</code>
+<br><code>GRANT ALL PRIVILEGES ON test_db.* TO 'michal'@'localhost';</code>
+<br><code>CREATE TABLE test_table (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,message VARCHAR(255));</code>
+
+<h4>Potrebné nástroje s verziami</h4>
+<p> maven 3.9.6, npm 10.5.2, openjdk 13.0.1, node.js 12+  </p>
+<a href="https://www.digitalocean.com/community/tutorials/install-maven-linux-ubuntu">https://www.digitalocean.com/community/tutorials/install-maven-linux-ubuntu</a>
+<p>v zložke /backend-module</p>
+<code>mvn install</code>
+<br><code>npm install</code>
+
+<h4>Spustenie</h4>
+<code>sudo service mysql start</code>
+<br><code>npm run start</code> v zložke: <code>/backend-module</code>
+
+</body></html>
